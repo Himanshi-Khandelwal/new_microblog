@@ -1,29 +1,26 @@
-<!-- <p>
-  {{username}}
-</p> -->
-
-<!--
-<html>
+<!-- <html>
 <head>
-
 </head>
 <body>
 
-<form action="post.html">
-    <input type="submit" value="Add Post" />
+<h4>POSTS: </h4>
+<form action="" method="post">
+<input type="text"  placeholder ="Add Your Post" name="post" /><br>
+<input type="text"  placeholder ="title" name="title" /><br>
+<input type="text"  placeholder ="tag" name="tag" /><br>
+<input type="submit" value="Submit"/>
+
 </form>
-
-
-
 </body>
-
-
 </html> -->
 
 
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/style.css') }}"  >
+  <script src="{{ url_for('static', filename = 'css/jquery.js') }}"></script>
+
 <style>
 /* The Modal (background) */
 .modal {
@@ -63,6 +60,19 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+}
+
+
+
+
 </style>
 </head>
 <body>
@@ -70,29 +80,51 @@
 <h2>Posts</h2>
 
 <!-- Trigger/Open The Modal -->
-<!-- <button id="myBtn">Add Post</button>
+  {%block content %}
+<button id="myBtn">Add Post</button>
+<br><br>
+<p>
+<form action="/search/" method="post">
 
+  <input type="text"  placeholder ="Search title" name="search" />
+  <input type="submit" value="go"/>
+
+</form>
+<br>
+<form action="/delete/{{""}}" method="post">
+
+  <input type="text"  placeholder ="Enter title to be deleted" name="delete" />
+  <input type="submit" value="Delete"/>
+
+</form>
+</p>
+
+<a href="/all_posts" class="button">Show all posts</a>
+
+<br>
+<br><br>
+<a href="/logout" class="button">Logout</a>
 <!-- The Modal -->
-<!-- <div id="myModal" class="modal">
+<div id="myModal" class="modal">
 
   <!-- Modal content -->
-  <!-- <div class="modal-content">
+  <div class="modal-content">
     <span class="close">×</span>
-    <p>Some text in the Modal..</p>
-    <h4>POSTS: </h4>
+    <p><h4>POSTS: </h4></p>
+
 <form action="" method="post">
-<input type="text"  placeholder ="Add Your Post" name="post" /><br>
-<input type="text"  placeholder ="title" name="title" /><br>
-<input type="text"  placeholder ="tag" name="tag" /><br>
+<input type="text"  placeholder ="Add Your Post" name="post" required="" /><br>
+<input type="text"  placeholder ="title" name="title" required=""/><br>
+<input type="text"  placeholder ="tag" name="tag"required="" /><br>
 <input type="submit" value="Submit"/>
 
 </form>
   </div>
 
 </div>
-
-<script> -->
-<!-- // Get the modal
+{% endblock %}
+<script>
+// Get the modal
 var modal = document.getElementById('myModal');
 
 // Get the button that opens the modal
@@ -120,4 +152,4 @@ window.onclick = function(event) {
 </script>
 
 </body>
-</html> --> --> --> -->
+</html>

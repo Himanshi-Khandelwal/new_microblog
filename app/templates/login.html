@@ -1,24 +1,11 @@
-<html>
-	<head>
-		<title> login page </title>
-	</head>
 
-	<body>
-		<div class="container">
-		<br>
-		<h4>please login: </h4>
-		<br>
+{% extends "main.html" %}
+{%block content %}
+<h3>&nbsp &nbsp Please Login: </h3>
+<form action="{{ url_for('login') }}" method="post">
+&nbsp &nbsp <input type="text"  placeholder ="username" name="username" />
+<input type="password"  placeholder ="password" name="password" />
+<input type="submit" value="Login"/>
 
-		{%block login %}
-
-		<form action="" method="post">
-		<input type="text"  placeholder ="username" name="username" value="username"/>
-		<input type="password"  placeholder ="password" name="password" value="password"/>
-		<input type="submit" value="Login"/>
-
-		</form>
-		{% endblock%}
-		</div>
-	</body>
-
-</html>
+</form>
+{% endblock%}

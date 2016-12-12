@@ -1,0 +1,25 @@
+
+<p>
+
+
+	  {% for i in all_posts -%}
+      {{ loop.index }}
+      <br>
+		    <b>Title: </b> {{i.title }}
+        <br>
+		    <b>Post: </b>  {{i.post }}
+        <br>
+		    <b>Tag: </b> {{i.tag}}
+
+				<form action="/delete/{{i.title}}" method="post">
+
+				  <input type="hidden"  placeholder ="Enter title to be deleted" name="{{i.title}}" />
+				  <input type="submit" value="Delete"   />
+
+				</form>
+
+
+      <hr>
+	   {%- endfor %}
+
+</p>

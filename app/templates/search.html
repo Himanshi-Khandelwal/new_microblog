@@ -1,0 +1,25 @@
+<html>
+<head>
+</head>
+<body>
+
+
+
+<p>
+
+	{% if results %}
+		<p>Results
+			<br>
+			{% for i in results %}
+				{{ i.title }}
+				<br>
+				{{ i.post }}
+				<br>
+				{{ i.tag }}
+				<br><br>
+			{% endfor %}
+		</p>
+	{% endif %}
+</p>
+<body>
+</html>
