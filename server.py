@@ -1,11 +1,9 @@
 import os
-from app import app
+from app import create_app
 
-from flask.ext.script import Manager
-
-# app = create_app(os.getenv('FLASK_CONFIG') or 'default')
-
-manager = Manager(app)
+#app.run(debug=True)
+app = create_app('production')
 
 if __name__ == '__main__':
-    manager.run()
+	port = int(os.environ.get("PORT", 7500))
+	app.run(host='0.0.0.0', port=port, debug=True)

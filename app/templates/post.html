@@ -19,8 +19,6 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/style.css') }}"  >
-  <script src="{{ url_for('static', filename = 'css/jquery.js') }}"></script>
-
 <style>
 /* The Modal (background) */
 .modal {
@@ -91,12 +89,7 @@ a.button {
 
 </form>
 <br>
-<form action="/delete/{{""}}" method="post">
 
-  <input type="text"  placeholder ="Enter title to be deleted" name="delete" />
-  <input type="submit" value="Delete"/>
-
-</form>
 </p>
 
 <a href="/all_posts" class="button">Show all posts</a>
@@ -113,9 +106,9 @@ a.button {
     <p><h4>POSTS: </h4></p>
 
 <form action="" method="post">
-<input type="text"  placeholder ="Add Your Post" name="post" required="" /><br>
-<input type="text"  placeholder ="title" name="title" required=""/><br>
-<input type="text"  placeholder ="tag" name="tag"required="" /><br>
+<input type="text"  placeholder ="Add Your Post" name="post" /><br>
+<input type="text"  placeholder ="title" name="title" /><br>
+<input type="text"  placeholder ="tag" name="tag" /><br>
 <input type="submit" value="Submit"/>
 
 </form>
