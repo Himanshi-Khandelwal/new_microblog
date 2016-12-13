@@ -2,7 +2,7 @@ import os
 from app import create_app
 
 #app.run(debug=True)
-app = create_app('production')
+app = create_app('default')
 
 if __name__ == '__main__':
 	port = int(os.environ.get("PORT", 7500))
