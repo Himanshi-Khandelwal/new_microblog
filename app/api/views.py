@@ -219,7 +219,7 @@ def delete_entry(title):
         results = post_data.query.filter_by(title = keyword ,post_id= session['user_id']).delete()
         db.session.commit()
         all_posts = post_data.query.filter_by(post_id= session['user_id'])
-    return render_template('show.html', all_posts=all_posts)
+        return render_template('show.html', all_posts=all_posts)
 
 
 
