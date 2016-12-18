@@ -208,18 +208,17 @@ def show_post():
 def user(username):
     return render_template('user.html',username=username)
 
-@api.route('/delete/<title>', methods=['POST','GET'])
+@api.route('/delete/<title>', methods=['POST'])
 def delete_entry(title):
     results=None
-    if request.method == 'POST':
-        if title == "":
-            keyword = request.form['delete']
-        else:
-            keyword = title
-        results = post_data.query.filter_by(title = keyword ,post_id= session['user_id']).delete()
-        db.session.commit()
-        all_posts = post_data.query.filter_by(post_id= session['user_id'])
-        return render_template('show.html', all_posts=all_posts)
+    if title == "":
+        keyword = request.form['delete']
+    else:
+        keyword = title
+    results = post_data.query.filter_by(title = keyword ,post_id= session['user_id']).delete()
+    db.session.commit()
+    all_posts = post_data.query.filter_by(post_id= session['user_id'])
+    return render_template('show.html', all_posts=all_posts)
 
 
 @api.route('/logout')
