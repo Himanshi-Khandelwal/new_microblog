@@ -222,7 +222,6 @@ def delete_entry(title):
         return render_template('show.html', all_posts=all_posts)
 
 
-
 @api.route('/logout')
 @login_required
 def logout():
