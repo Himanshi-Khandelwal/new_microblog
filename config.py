@@ -19,18 +19,18 @@ class DevelopmentConfig(Config):
 	DEBUG = True
 	SECRET_KEY ='t0p s3cr3t'
 	SQLALCHEMY_TRACK_MODIFICATIONS = True
-	SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://himanshi:himanshi@localhost/login'
+	SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:himanshi@localhost/login'
 
 
 class TestingConfig(Config):
 	TESTING = True
-	SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://himanshi:himanshi@localhost/login'
+	SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:himanshi@localhost/login'
 
 class ProductionConfig(Config):
 	DEBUG = False
 	SECRET_KEY ='t0p s3cr3t'
 	SQLALCHEMY_TRACK_MODIFICATIONS = True
-	SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'postgresql+psycopg2://himanshi:himanshi@localhost/login'
+	SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'postgresql+psycopg2://myprojectuser:himanshi@localhost/myproject'
 
 config = {
 	'development': DevelopmentConfig,
