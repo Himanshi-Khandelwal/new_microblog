@@ -38,6 +38,19 @@ google = oauth.remote_app('google',
                           consumer_secret=GOOGLE_CLIENT_SECRET)
 
 
+facebook = oauth.remote_app('facebook',
+    base_url='https://graph.facebook.com/',
+    request_token_url=None,
+    access_token_url='/oauth/access_token',
+    authorize_url='https://www.facebook.com/dialog/oauth',
+    consumer_key='1187213901313855',
+    consumer_secret='a7ddadff9ec37c8db4946acdd3b1f561',
+    request_token_params={'scope': 'email'}
+)
+
+
+
+
 @api.route('/')
 def home():
   return render_template("main.html")
@@ -94,6 +107,51 @@ def authorized(resp):
 @google.tokengetter
 def get_access_token():
     return session.get('access_token')
+
+
+
+
+
+@app.route('/facebook-login')
+def facebook_login():
+    return facebook.authorize(
+        callback=url_for(
+            'facebook_authorized',
+            next=request.args.get('next') or request.referrer or
+              None,
+            _external=True
+        ))
+
+@app.route('/facebook-login/authorized')
+@facebook.authorized_handler
+def facebook_authorized(resp):
+    if resp is None:
+        return 'Access denied: reason=%s error=%s' % (
+            request.args['error_reason'],
+            request.args['error_description']
+        )
+    session['facebook_oauth_token'] = (resp['access_token'], '')
+    me = facebook.get('/me')
+    user = signup.query.filter_by(username=me.data['email']).first()
+    if not user:
+        user = signup(me.data['email'], '')
+	db.session.add(user)
+        db.session.commit()
+    login_user(user)
+    flash(
+        'Logged in as id=%s name=%s' % (me.data['id'],
+          me.data['name']),
+        'success'
+    )
+    return redirect(request.args.get('next'))
+
+
+@facebook.tokengetter
+def get_facebook_oauth_token():
+    return session.get('facebook_oauth_token')
+
+
+
 
 
 
