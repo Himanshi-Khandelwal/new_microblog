@@ -1,21 +1,44 @@
+<style>
 
+.blog-post {
+  margin-left:10px;
+  margin-bottom: 60px;
+  border:2px solid #e5e5e5;
+  border-radius:5px;
+  min-height:150px;
+  width:700px;
+}
+
+.container-lef{
+padding-right:15px;
+padding-left:15px;
+margin-left:250px;
+}
+</style>
 <p>
 
-
+	  {% if all_posts %}
 	  {% for i in all_posts -%}
+			<div class="blog-post container-lef">
       {{ loop.index }}
+
       <br>
-		    <b>Title: </b> {{i.title }}
-        <br>
-		    <b>Post: </b>  {{i.post }}
-        <br>
-		    <b>Tag: </b> {{i.tag}}
+		    <b style="margin-left:10px;  margin-bottom: 5px;font-size: 40px;"> {{i.title }}</b>
+        <br><br>
+				<b>Tag: </b> {{i.tag}}
+				  <br>
+		    <b style="margin-left:0px;  margin-bottom: 60px;">Post:  </b>{{i.post }}
 				<form action="/delete/{{i.title}}" method="post">
-				<input type="hidden"  placeholder ="Enter title to be deleted" name="delete" /><br>
-				<input type="submit" value="Delete"/>
+				<input type="hidden"  placeholder ="Enter title to be deleted" name="delete" required/><br>
+				<input style="color:white;font:bold; background:#5bc0de; border-radius:2px; border:none; height:26px; width: 80px;  margin:0px ;" type="submit" value="Delete"/>
 
 				</form>
-      <hr>
+					</div>
+
 	   {%- endfor %}
+		 {% else %}
+
+	<p><h2>No posts to show</h2></p>
+	{% endif %}
 
 </p>

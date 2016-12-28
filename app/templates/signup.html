@@ -7,14 +7,14 @@
 {% endif %}
 
 
-<h4>please signup: </h4>
+<h2><div class="do">Please Register: </div></h2>
 <form action="" class="form-inline" method="post">
-<input type="text" class= "form-control" placeholder ="Username" name="username" value="{{request.form.username }}">
-<input type="text" class= "form-control" placeholder ="Email" name="email" value="{{request.form.email }}">
+<input class="custom"  type="text" class= "form-control" placeholder ="Username" name="username" value="{{request.form.username }}">
+<input class="custom"  type="text" class= "form-control" placeholder ="Email" name="email" value="{{request.form.email }}">
 
-<input type="password" class= "form-control" placeholder ="Password" name="password" value="{{request.form.password }}">
-<input type="text" class= "form-control" placeholder ="Mobile" name="mobile" value="{{request.form.mobile }}">
-<input class="btn btn-default" type="submit" value="Register">
+<input class="custom"  type="password" class= "form-control" placeholder ="Password" name="password" value="{{request.form.password }}">
+<input class="custom"  type="text" class= "form-control" placeholder ="Mobile" name="mobile" value="{{request.form.mobile }}">
+<input class="btn btn-primary btn-md" style="  margin:40px 60px 20px 550px;" type="submit" value="Register">
 
 
 </form>
