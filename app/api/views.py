@@ -12,8 +12,8 @@ from flask_login import current_user
 from app.models import signup,post_data
 from app import db
 
-GOOGLE_CLIENT_ID = '454289862376-ue1c1285rcpg0bsv837unipumimaurg0.apps.googleusercontent.com'
-GOOGLE_CLIENT_SECRET = '_ymiPkiaMnws2o6x19cQrNx2'
+GOOGLE_CLIENT_ID = 'Enter'
+GOOGLE_CLIENT_SECRET = 'Enter'
 
 REDIRECT_URI = '/oauth2callback'
 
@@ -43,8 +43,8 @@ facebook = oauth.remote_app('facebook',
     request_token_url=None,
     access_token_url='/oauth/access_token',
     authorize_url='https://www.facebook.com/dialog/oauth',
-    consumer_key='1187213901313855',
-    consumer_secret='a7ddadff9ec37c8db4946acdd3b1f561',
+    consumer_key='Enter',
+    consumer_secret='Enter',
     request_token_params={'scope': 'email'}
 )
 
